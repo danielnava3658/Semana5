@@ -1,0 +1,157 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffff;
+    font-family: 'Lato', sans-serif;
+}
+
+.toDo-cont{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #66607d;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 64px;
+}
+
+#taskInput {
+    width: 70%;
+    padding: 1px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.add-btn {
+    width: 23%;
+    padding: 10px;
+    margin: 3px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover{
+    background-color: #2c3e50;
+}
+
+.add-btn:active{
+    background-color: #2c3e50;
+    transform: scale(0.9);
+}
+
+.taskList{
+    width: 100%;
+    max-width: 400px;
+    margin:8px;
+}
+
+.taskList li{
+    background-color: rgb(243, 246, 255);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    box-shadow: 0 2px 5px #74758b;
+    transition: background-color 0.2s ease;
+    font-weight:600;
+}
+
+.taskList li:hover{
+    background-color: #3498db;
+    color: rgb(255, 255, 255);
+}
+
+.taskText{
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.taskList li.completed .taskText{
+    text-decoration: line-through;
+    color: rgb(0, 0, 0);
+}
+
+.taskList li.completed:hover .taskText {
+    color: #000000; 
+    text-decoration: line-through;
+}
+
+.delete-btn{
+    background: none;
+    border: none;
+    color: #000358;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover{
+    color: #edecff;
+    transform: scale(1.6);
+    background: #1d5a82;
+    border-radius: 10px;
+}
+
+.delete-btn:active{
+    color: #a8a7b9;
+    transform: scale(1);
+    background: #0e2c40;
+    border-radius: 10px;
+}
+
+
+
+
+
+@keyframes fallbackOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        max-height: 100px; 
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.9);
+        max-height: 100px;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.9);
+        max-height: 0;       
+        padding-top: 0;     
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border: none;
+    }
+}
+.taskList li.removing {
+    animation: fallbackOut 0.4s ease forwards;
+    pointer-events: none; 
+}
